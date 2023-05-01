@@ -6,11 +6,9 @@
   width: calc(50% - 1rem);
   margin: 1rem;
   padding-left: 0;
-
-  border: 1px solid blue;
 }
 
-.list-item {
+.list__item {
   box-sizing: border-box;
   width: 100%;
   list-style-type: none;
@@ -18,5 +16,5 @@
   padding: 1rem;
   margin: 0;
 
-  border: 1px dashed lightblue;
+  border: 1px solid lightgrey;
 }
