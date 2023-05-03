@@ -26,7 +26,9 @@ function App() {
       {(isLoading && <p>Загружаем данные...</p>) || (
         <List data={data} selectItem={selectItem} />
       )}
-      {(selectedItem && <Details info={selectedItem} />) || <Details />}
+      {(selectedItem && <Details info={selectedItem} />) || (
+        <p className="details__article">Not selected</p>
+      )}
     </div>
   );
   return (isLoading && <p>Загружаем данные...</p>) || JSX;
