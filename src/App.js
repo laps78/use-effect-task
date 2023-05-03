@@ -5,20 +5,21 @@ import React, { useEffect, useState } from "react";
 import fetchData from "./components/engine/fetchData";
 
 function App() {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
   const makeData = (newData) => setData(newData);
-  const switchLoading = (isLoading) => setLoading(isLoading);
+  const switchLoading = (value) => setLoading(value);
 
   useEffect(() => {
     console.log("useEfect App.js");
     fetchData("users.json", switchLoading, makeData);
   }, []);
-  console.log(data);
+  console.log("app-data: ", data);
+  console.log("app-Loading: ", isLoading);
   const JSX = (
     <div className="App">
-      <List data={data} />
+      {(isLoading && <p>Загружаем данные...</p>) || <List data={data} />}
       <Details />
     </div>
   );
