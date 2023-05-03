@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// TODO do something with this instance or delete it!
 // возможно, все запросы можно перенести в одну функцию и переиспользовать ее во всех компонентах?
 export default async function fetchData(postfix, switchLoading, makeData) {
   switchLoading(true);
