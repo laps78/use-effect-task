@@ -27,7 +27,9 @@ function App() {
         <List data={data} selectItem={selectItem} />
       )}
       {(selectedItem && <Details info={selectedItem} />) || (
-        <p className="details__article">Not selected</p>
+        <p className="details__article" style={{ color: "grey" }}>
+          Not selected
+        </p>
       )}
     </div>
   );
