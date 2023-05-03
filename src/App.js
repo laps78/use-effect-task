@@ -8,10 +8,14 @@ function App() {
   const [isLoading, setLoading] = useState(false);
   const [data, setData] = useState(null);
 
+  const makeData = (newData) => setData(newData);
+  const switchLoading = (isLoading) => setLoading(isLoading);
+
   useEffect(() => {
     console.log("useEfect App.js");
-    fetchData("user.json", isLoading, setLoading, setData);
+    fetchData("users.json", switchLoading, makeData);
   }, []);
+  console.log(data);
   const JSX = (
     <div className="App">
       <List data={data} />
@@ -22,3 +26,5 @@ function App() {
 }
 
 export default App;
+
+//
