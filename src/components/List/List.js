@@ -1,17 +1,17 @@
 import "./List.css";
 import { PropTypes } from "prop-types";
 
-export default function List({ data }) {
+export default function List({ data, selectItem }) {
   const clickHandler = (evt) => {
     const selectedItemData = {
       id: evt.target.dataset.id,
       name: evt.target.dataset.name,
     };
+    selectItem(selectedItemData);
     console.log("selected item data: ", selectedItemData);
   };
   const showItems = (data) =>
     data.map((item) => {
-      console.log("item: ", item);
       return (
         <li
           key={item.id}
@@ -32,4 +32,5 @@ export default function List({ data }) {
 
 List.propTypes = {
   data: PropTypes.array,
+  selectItem: PropTypes.func,
 };
