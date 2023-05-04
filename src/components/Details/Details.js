@@ -2,14 +2,14 @@ import "./Details.css";
 import { useEffect, useState } from "react";
 import fetchData from "../engine/fetchData";
 
-export default function Details({ info = { id: null } }) {
+export default function Details({ info }) {
   console.log("Details-incomming info.id: ", info.id);
-  const [cardInfo, setCardInfo] = useState(null);
+  const [cardInfo, setCardInfo] = useState(info);
   const [cardIsLoading, setCardLoading] = useState(false);
   const makeCard = (newCardData) => setCardInfo(newCardData);
-  const switchCardLoadingStatus = (newCardLoadingStatus) =>
+  const switchCardLoadingStatus = (newCardLoadingStatus) => {
     setCardLoading(newCardLoadingStatus);
-
+  };
   console.log("Details-info: ", info);
 
   useEffect(() => {
@@ -29,7 +29,10 @@ export default function Details({ info = { id: null } }) {
     </article>
   );
 
-  return (cardIsLoading && <p>Загружаем данные...</p>) || JSX;
+  return (
+    (cardIsLoading && <p style={{ color: "grey" }}>Загружаем данные...</p>) ||
+    JSX
+  );
 }
 
 // data template:
