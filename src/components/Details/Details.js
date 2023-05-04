@@ -3,47 +3,33 @@ import { useEffect, useState } from "react";
 import fetchData from "../engine/fetchData";
 
 export default function Details({ info }) {
-  console.log("Details-incomming info.id: ", info.id);
   const [cardInfo, setCardInfo] = useState(info);
-  const [cardIsLoading, setCardLoading] = useState(false);
+  const [cardIsLoading, setCardLoading] = useState(true);
   const makeCard = (newCardData) => setCardInfo(newCardData);
-  const switchCardLoadingStatus = (newCardLoadingStatus) => {
+  const switchLoading = (newCardLoadingStatus) => {
     setCardLoading(newCardLoadingStatus);
   };
-  console.log("Details-info: ", info);
 
   useEffect(() => {
     console.log("useEffect Details.js!!!");
     console.log("useEffect Details.js: cardIsLoading", cardIsLoading);
-    fetchData(`${info.id}.json`, switchCardLoadingStatus, makeCard);
+    fetchData(`${info.id}.json`, switchLoading, makeCard);
+    console.log(
+      "useEffect Details.js: cardIsLoading after fetch envoke: ",
+      cardIsLoading
+    );
     console.log("Details-fetched-data: ", cardInfo);
   }, [info.id]);
 
-  const JSX = (
-    <article className="details__article">
-      <img
-        className="details__article_avatar"
-        src={cardInfo.avatar}
-        alt={`${cardInfo.name} avatar`}
-      />
-    </article>
-  );
-
   return (
-    (cardIsLoading && <p style={{ color: "grey" }}>Загружаем данные...</p>) ||
-    JSX
+    (cardIsLoading && <p style={{ color: "grey" }}>Загружаем данные...</p>) || (
+      <article className="details__article">
+        <img
+          className="details__article_avatar"
+          src={cardInfo.avatar}
+          alt={`${cardInfo.name} avatar`}
+        />
+      </article>
+    )
   );
 }
-
-// data template:
-
-// {
-//   id: 1,
-//   name: "Dorthy McClure Sr.",
-//   avatar: "https://i.pravatar.cc/300",
-//   details: {
-//     city: "Sipesfort",
-//     company: "Hilll LLC",
-//     position: "Regional Identity Supervisor",
-//   },
-// }

@@ -15,11 +15,8 @@ function App() {
   const selectItem = (newSelectedItem) => setSelectedItem(newSelectedItem);
 
   useEffect(() => {
-    console.log("useEfect App.js!!!");
     fetchData("users.json", switchLoading, makeData);
   }, []);
-  console.log("app-data: ", data);
-  console.log("app-Loading: ", isLoading);
 
   const JSX = (
     <div className="App">
