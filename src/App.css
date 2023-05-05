@@ -1,4 +1,9 @@
-.App {
+.info {
+  text-align: center;
+}
+
+.App,
+.app__preloader {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
