@@ -8,7 +8,6 @@ export default function List({ data, selectItem }) {
       name: evt.target.dataset.name,
     };
     selectItem(selectedItemData);
-    console.log("selected item data: ", selectedItemData);
   };
   const showItems = (data) =>
     data.map((item) => {

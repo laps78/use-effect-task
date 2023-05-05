@@ -5,7 +5,6 @@ import { PropTypes } from "prop-types";
 export default async function fetchData(sufix, switchLoading, makeData) {
   switchLoading(true);
   let data = null;
-  let loading = true;
   try {
     const responce = await axios.get(
       `${process.env.REACT_APP_DATA_URL}${sufix}`
@@ -18,10 +17,7 @@ export default async function fetchData(sufix, switchLoading, makeData) {
   } finally {
     switchLoading(false);
     makeData(data);
-    console.log("fetchData-isLoading: ", loading);
-    loading = false;
   }
-  console.log("fetchData-isloading after: ", loading);
 }
 
 fetchData.proptypes = {
