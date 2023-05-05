@@ -1,14 +1,16 @@
 # Список и детали
 
+Рабочая версия приложения для демонсттрации находится [вот тут](https://laps78.github.io/use-effect-task/ "клик, чтобы посмотреть!")
+
 ===
 
 Вы решили потренироваться в использовании хука `useEffect` и реализовать следующее приложение — список с пользователями, в котором при клике на пользователя рядом появляется окно, отображающее детальную информацию о нём:
 
-![useEffect](./assets/use-effect.png)
+![useEffect](https://github.com/netology-code/ra16-homeworks/raw/master/hooks-context/use-effect/assets/use-effect.png)
 
 При первой загрузке ни один из элементов не выбран, поэтому отображается только список:
 
-![First load](./assets/first-load.png)
+![First load](https://github.com/netology-code/ra16-homeworks/raw/master/hooks-context/use-effect/assets/first-load.png)
 
 ## Механика
 
