@@ -12,8 +12,8 @@ export default function Details({ info }) {
     setCardLoading(newCardLoadingStatus);
   };
 
-  const ShowDetails = () =>
-    Array.from(cardInfo.details).map((detail) => (
+  const ShowDetails = (details) =>
+    details.map((detail) => (
       <li
         key={nanoid()}
         className="detail"
@@ -35,7 +35,11 @@ export default function Details({ info }) {
           alt={`${cardInfo.name} avatar`}
         />
         <h2 className="article__header">{cardInfo.name}</h2>
-        <ul className="article_details_list">{ShowDetails()}</ul>
+        <ul className="article_details_list">
+          {Array.from(cardInfo.details).map((detail) => (
+            <li key={nanoid()}>{detail}</li>
+          ))}
+        </ul>
       </article>
     )
   );
